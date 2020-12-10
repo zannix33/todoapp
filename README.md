@@ -8,10 +8,10 @@ Basic todo list, that allows the user to register, log in, and create Todo tasks
 ```
 composer install
 ```
-**Run npm install**
+**Run npm install And compile assets**
 (node - v13 and npm - v6)
 ```
-npm install
+npm install && npm run dev
 ```
 **Create .env**
 ```
