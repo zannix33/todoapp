@@ -21,7 +21,6 @@ cp .env.example .env
 ```
 php artisan key:generate
 ```
-
 **Configure MySQL connection details in .env**
 ```
 DB_CONNECTION=mysql
