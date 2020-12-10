@@ -3,7 +3,7 @@ Basic todo list, that allows the user to register, log in, and create Todo tasks
 
 ## Installation
 **Clone the repo**
-```
+
 **Run composer install**
 ```
 composer install
