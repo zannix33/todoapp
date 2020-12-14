@@ -1923,14 +1923,43 @@ __webpack_require__.r(__webpack_exports__);
         labels: data.labels,
         datasets: [{
           label: 'Incomplete',
+          backgroundColor: "transparent",
           borderColor: '#FC2525',
           data: data.status.incomplete
+        }, {
+          label: "Completed",
+          backgroundColor: "transparent",
+          borderColor: "#008000",
+          data: data.status.complete
         }]
       }, {
         responsive: true,
         maintainAspectRatio: false
       });
     });
+    setInterval(function () {
+      axios.get('/todos/get-todo-status').then(function (_ref2) {
+        var data = _ref2.data;
+
+        _this.renderChart({
+          labels: data.labels,
+          datasets: [{
+            label: 'Incomplete',
+            backgroundColor: "transparent",
+            borderColor: '#FC2525',
+            data: data.status.incomplete
+          }, {
+            label: "Completed",
+            backgroundColor: "transparent",
+            borderColor: "#008000",
+            data: data.status.complete
+          }]
+        }, {
+          responsive: true,
+          maintainAspectRatio: false
+        });
+      });
+    }, 10000);
   }
 });
 
