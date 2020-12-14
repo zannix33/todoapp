@@ -22,6 +22,7 @@ window.bus = new Vue();
 
 Vue.component('todo-component', require('./components/TodoComponent.vue').default);
 Vue.component('todo-item', require('./components/TodoItemComponent.vue'));
+Vue.component('chart-status', require('./components/ChartStatusComponent.vue').default);
 
 /**
  * Next, we will create a fresh Vue application instance and attach it to

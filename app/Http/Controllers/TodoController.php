@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Todo;
 use Auth;
 use Carbon\Carbon;
+use App\Libraries\Repositories\TodoStatusRepository as TodoStatus;
 
 
 class TodoController extends Controller
@@ -27,7 +28,9 @@ class TodoController extends Controller
     {
 		$user = Auth::user();
 
-        return response()->json($user->todos()->latest()->get());
+
+        return response()->json(['todos' => $user->todos()->latest()->get()]);
+
     }
 
     /**
@@ -49,7 +52,7 @@ class TodoController extends Controller
     public function store(Request $request)
     {
 		$todoItem = $request->validate([
-        	'title' => 'required'			
+        	'title' => 'required'
     	]);
 
 		$todo = $this->todos->create([
@@ -117,10 +120,12 @@ class TodoController extends Controller
     	return response('Todo Deleted Succesfully', 200);
     }
 
-	public function getLastHour()
+	public function getTodoStatus()
 	{
-		$lastHour = Auth::user()->todos()->lastHour()->get();
-		return $lastHour;
+		$lastHour = Auth::user()->todos()->get();
+
+		$todoStatus = new TodoStatus($lastHour, Carbon::now()->subMinutes(60));
+		return response()->json(['status' => $todoStatus->status(), 'labels' => $todoStatus->labels()]);
 
 	}
 }

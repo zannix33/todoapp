@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-3/4 lg:max-w-lg">
+    <div class="bg-white rounded shadow p-6 m-4 w-full lg:w-1/2 lg:max-w-lg">
         <div class="mb-6">
             <h1 class="text-grey-darkest">Todo List</h1>
             <div class="flex mt-4">
@@ -43,10 +43,11 @@
             },
             getTodos() {
               const t = this;
+			  //alert('initialize');
 
               axios.get('/todos')
                   .then(({data}) => {
-                    t.todos = data;
+                    t.todos = data.todos;
                   });
             },
             createTodo(text) {

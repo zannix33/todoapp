@@ -34,7 +34,7 @@
 
 				<div class="px-4 py-6 sm:px-0">
 		  			<div class="border-4 border-dashed border-gray-200 rounded-lg h-auto">
-						<div id="app" class="flex items-center justify-start px-4 py-4">
+						<div id="app" class="flex items-start justify-between px-4 py-4">
 							@yield('content')
 						</div>
 					</div>

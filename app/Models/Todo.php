@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Todo extends Model
 {
@@ -37,8 +38,8 @@ class Todo extends Model
     }
 
 	public function scopeLastHour($query) {
-        $fromDate = Carbon::now()->subMinutes(60);
+        $fromDate = Carbon::now()->subHour(1);
         $toDate = Carbon::now();
-        return $query->whereNull('completed_at')->whereBetween('created_at', [$fromDate, $toDate]);
+        return $query->whereBetween('created_at', [$fromDate, $toDate]);
     }
 }

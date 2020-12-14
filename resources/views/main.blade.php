@@ -1,7 +1,9 @@
 @extends('layouts.main')
 
-@section('content')	
+@section('content')
 
 	<todo-component></todo-component>
+
+	<chart-status></chart-status>
 
 @endsection

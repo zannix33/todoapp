@@ -1,7 +1,7 @@
 <template>
     <div class="mb-4">
         <div class="flex items-center w-full" v-show="state.edit === false">
-            <input type="checkbox" class="mr-2"			 	   
+            <input type="checkbox" class="mr-2"
 				   v-model="data.completed"
 				   @click="updateTodo">
             <p class="w-auto"

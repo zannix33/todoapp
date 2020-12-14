@@ -23,6 +23,7 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 Route::middleware('auth')->group(function () {
+	Route::get('todos/get-todo-status', [TodoController::class, 'getTodoStatus'])->name('get-todo-status');
 	Route::apiResource('todos', TodoController::class)->middleware('auth');
-	Route::get('todos/last-hour', [TodoController::class, 'getLastHour'])->name('last-hour');
+
 });
